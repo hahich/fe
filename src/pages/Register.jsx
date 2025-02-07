@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
 import AxiosToastError from '../utils/AxiosToastError';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [data, setData] = useState({
@@ -15,6 +16,8 @@ const Register = () => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const navigate = useNavigate()
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({
@@ -42,8 +45,15 @@ const Register = () => {
       if (res.data.error) {
         toast.error(res.data.message);
       }
-      if (res.data.success) { 
+      if (res.data.success) {
         toast.success(res.data.message);
+        setData({
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: ""
+        })
+        navigate("/login")
       }
 
     } catch (error) {
@@ -133,6 +143,8 @@ const Register = () => {
 
           <button disabled={!validValue} className={`${validValue ? "bg-green-700 hover:bg-green-800" : "bg-gray-500"}  text-white py-2 rounded font-semibold my-3 tracking-wide`} onClick={handleSubmit}>Register</button>
         </form>
+
+        <p>Already have account ? <Link to={"/login"} className='font-semibold text-green-700 hover:text-green-800'>Login</Link></p>
       </div>
     </section>
   );
