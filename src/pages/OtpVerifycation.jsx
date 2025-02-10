@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
-import AxiosToastError from '../utils/AxiosToastError';
+// import AxiosToastError from '../utils/AxiosToastError';
 import { Link, useNavigate } from 'react-router-dom';
 
 const VerifyOtp = () => {
@@ -53,10 +53,16 @@ const VerifyOtp = () => {
             if (res.data.success) {
                 toast.success(res.data.message);
                 setData(["", "", "", "", "", ""]);
-                navigate("/reset-password"); 
+                navigate("/reset-password"),{
+                    state: {
+                        data: res.data,
+                        email:email
+                    }
+                }; 
             }
         } catch (error) {
-            AxiosToastError(error);
+            // AxiosToastError(error);
+            console.error(error)
         }
     };
 

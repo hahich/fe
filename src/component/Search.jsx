@@ -60,7 +60,7 @@ const Search = () => {
                         </div>
                     ) : (
                         // when i was search page
-                        <div className="w-full h-full">
+                        <div className="w-full lg:min-w-[350px] h-full">
                             <input type='text' placeholder='Bạn muốn tìm cái gì?' autoFocus className='bg-transparent w-full h-full outline-none' />
                         </div>
                     )

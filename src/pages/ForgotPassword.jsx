@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
-import AxiosToastError from '../utils/AxiosToastError';
+// import AxiosToastError from '../utils/AxiosToastError';
 import { Link, useNavigate } from 'react-router-dom';
 
 const FotgotPassword = () => {
@@ -43,11 +43,10 @@ const FotgotPassword = () => {
             }
 
         } catch (error) {
-            AxiosToastError(error);
+            // AxiosToastError(error);
+            console.error(error)
         }
     }
-
-    
 
     return (
         <section className='w-full container mx-auto px-2'>

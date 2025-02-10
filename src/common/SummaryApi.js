@@ -20,6 +20,14 @@ const SummaryApi = {
         url: '/api/user/reset-password',
         method: 'put'
     },
+    refreshToken: {
+        url: "/api/refresh-token",
+        method: 'post'
+    },
+    logout: {
+        url: "/api/user/logout",
+        method: 'get'
+    },
     getMe: {
         url: '/api/user/getMe',
         method: 'get'

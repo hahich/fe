@@ -3,7 +3,7 @@ import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
-import AxiosToastError from '../utils/AxiosToastError';
+// import AxiosToastError from '../utils/AxiosToastError';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -57,7 +57,8 @@ const Register = () => {
       }
 
     } catch (error) {
-      AxiosToastError(error);
+      // AxiosToastError(error);
+      console.error(error)
     }
   }
 
